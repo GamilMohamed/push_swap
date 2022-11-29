@@ -1,40 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/25 21:18:08 by mgamil            #+#    #+#             */
-/*   Updated: 2022/11/29 04:13:38 by mgamil           ###   ########.fr       */
+/*   Created: 2022/11/29 03:19:40 by mgamil            #+#    #+#             */
+/*   Updated: 2022/11/29 03:19:49 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_printab(t_pile pile_a, t_pile pile_b)
+int	ft_getmin(t_pile pile)
 {
 	int	i;
-	int	j;
+	int	temp;
+	int	ret;
 
 	i = 0;
-	j = 0;
-	while (i < pile_a.size - pile_b.size)
+	temp = pile.tab[i];
+	ret = 0;
+	while (i < pile.size)
 	{
-		ft_printf("%r%i%0\t%g%i%0\t\n", i, pile_a.tab[i]);
+		if (temp > pile.tab[i])
+		{
+			temp = pile.tab[i];
+			ret = i;
+		}
 		i++;
 	}
-	while (j < pile_b.size - pile_a.size)
+	return (ret);
+}
+
+int	ft_getmax(t_pile pile)
+{
+	int	i;
+	int	temp;
+	int	ret;
+
+	i = 0;
+	ret = 0;
+	temp = pile.tab[i];
+	while (i < pile.size)
 	{
-		ft_printf("\t\t%0%b%i%\t%r%i%0\t\n", pile_b.tab[j], j);
-		j++;
-	}
-	while (i < pile_a.size && j < pile_b.size)
-	{
-		ft_printf("%r%i%0\t%g%i%0\t%b%i%0\t%r%i%0\t\n", i, pile_a.tab[i],
-			pile_b.tab[j], j);
+		if (temp < pile.tab[i])
+		{
+			temp = pile.tab[i];
+			ret = i;
+		}
 		i++;
-		j++;
 	}
-	ft_printf("%i\tPILE A\tPILE B\t%i\n", pile_a.size, pile_b.size);
+	return (ret);
 }
