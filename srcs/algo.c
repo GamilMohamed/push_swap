@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 02:10:46 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/02 07:40:33 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/02 10:20:59 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	algo_three(t_pile *pile)
 
 void	algo_five(t_pile *pile_a, t_pile *pile_b)
 {
-	ft_pushmin(pile_a, pile_b);
+	ft_pushmin(pile_a, 'a');
 	pb();
-	ft_pushmin(pile_a, pile_b);
+	ft_pushmin(pile_a, 'a');
 	pb();
 	algo_three(pile_a);
 	pa();
@@ -62,7 +62,7 @@ void	algo_hundred(t_pile *pile_a, t_pile *pile_b)
 {
 	while (pile_a->size != 0)
 	{
-		ft_pushmin(pile_a, pile_b);
+		ft_pushmin(pile_a, 'a');
 		pb();
 	}
 	while (pile_a->size != 100)
