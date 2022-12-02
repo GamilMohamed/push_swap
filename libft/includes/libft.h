@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:25:30 by mgamil            #+#    #+#             */
-/*   Updated: 2022/11/25 21:25:35 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/01 20:23:08 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char				*ft_itoa(int n);
 int					ft_atoi(const char *str);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+void				ft_swap(void *a, void *b, int size);
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);

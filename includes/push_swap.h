@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 06:22:19 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/01 03:21:19 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/02 07:49:57 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,13 @@ void	algo_three(t_pile *pile);
 void	algo_five(t_pile *pile_a, t_pile *pile_b);
 void	algo_hundred(t_pile *pile_a, t_pile *pile_b);
 void	ft_algo(t_pile *pile_a, t_pile *pile_b);
-
 /*	MATH.C				*/
-int	ft_getmin(t_pile pile);
-int	ft_getmax(t_pile pile);
+int		ft_getmin(t_pile pile);
+int		ft_getmax(t_pile pile);
+/*	LIS.C				*/
+int		*ft_tabindex(t_pile *pile_a, t_pile *pile_b);
+int		*ft_sequence(t_pile *pile_a, t_pile *pile_b, int *tabindex, int *max);
+int		ft_intab(int j, int *tabindex, int max);
+void	ft_tabtopileb(t_pile *pile_a, t_pile *pile_b, int *tabindex, int max);
+int		ft_lis(t_pile *pile_a, t_pile *pile_b);
 #endif

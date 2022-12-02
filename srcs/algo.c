@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 02:10:46 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/01 03:23:22 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/02 07:40:33 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_algo(t_pile *pile_a, t_pile *pile_b)
 		algo_five(pile_a, pile_b);
 	else if (pile_a->size == 100)
 		algo_hundred(pile_a, pile_b);
-	ft_checksort(pile_a, pile_b, pile_a->total);
 }
+
 void	algo_three(t_pile *pile)
 {
 	if (pile->tab[0] > pile->tab[1] && pile->tab[1] < pile->tab[2]
@@ -50,13 +50,12 @@ void	algo_three(t_pile *pile)
 void	algo_five(t_pile *pile_a, t_pile *pile_b)
 {
 	ft_pushmin(pile_a, pile_b);
+	pb();
 	ft_pushmin(pile_a, pile_b);
+	pb();
 	algo_three(pile_a);
-	Ppb();
-	Ppb();
-	Ppb();
-	Ppa();
-	Ppa();
+	pa();
+	pa();
 }
 
 void	algo_hundred(t_pile *pile_a, t_pile *pile_b)

@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:18:08 by mgamil            #+#    #+#             */
-/*   Updated: 2022/11/29 04:13:38 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/02 07:31:45 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_printab(t_pile pile_a, t_pile pile_b)
 	j = 0;
 	while (i < pile_a.size - pile_b.size)
 	{
-		ft_printf("%r%i%0\t%g%i%0\t\n", i, pile_a.tab[i]);
+		ft_printf("%r%i%0\t%g%i%0\t\t\t\n", i, pile_a.tab[i]);
 		i++;
 	}
 	while (j < pile_b.size - pile_a.size)

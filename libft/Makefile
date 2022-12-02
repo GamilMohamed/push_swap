@@ -6,7 +6,7 @@
 #    By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 20:15:20 by apuchill          #+#    #+#              #
-#    Updated: 2022/11/25 12:11:46 by mgamil           ###   ########.fr        #
+#    Updated: 2022/12/01 20:23:41 by mgamil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ ft_substr.c \
 ft_strmapi.c \
 ft_strlcpy.c \
 ft_strlcat.c \
+ft_swap.c \
 ft_bzero.c \
 ft_memcpy.c \
 ft_memset.c \
