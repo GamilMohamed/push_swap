@@ -6,47 +6,52 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:15:51 by mgamil            #+#    #+#             */
-/*   Updated: 2022/11/29 05:44:57 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/04 04:09:22 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pushswap_rotate(t_pile *pile, char c)
+void	pushswap_rotate(t_pile *pile, char c, int x)
 {
 	int	first;
 
+	(void)x;
 	if (!pile->size)
 		return ;
 	first = pile->tab[pile->size - 1];
 	first = pile->tab[0];
 	ft_rotateup(pile);
 	pile->tab[pile->size - 1] = first;
-	ft_printf("r%c\n", c);
+	if (c == 'a' || c == 'b')
+		ft_printf("r%c\n", c);
+	else if (c == '0')
+		ft_printf("rr\n");
 }
 
-void	pushswap_rrotate(t_pile *pile, char c)
+void	pushswap_rrotate(t_pile *pile, char c, int x)
 {
 	int	last;
 
+	(void)x;
 	if (!pile->size)
 		return ;
 	last = pile->tab[pile->size - 1];
 	ft_rotatedown(pile);
 	pile->tab[0] = last;
-	ft_printf("rr%c\n", c);
+	if (c == 'a' || c == 'b')
+		ft_printf("rr%c\n", c);
+	else if (c == '0')
+		ft_printf("rrr\n");
 }
 
-void	pushswap_push(t_pile *dest, t_pile *src, char c, int *tab)
+int	pushswap_push(t_pile *dest, t_pile *src, char c, int *tab)
 {
 	int	temp;
 	int	i;
 
 	if (!src->size)
-	{
-		ft_printf("%r\t\tpush %c FAILED%0\n", c);
-		return ;
-	}
+		return (ft_printf("%r\t\tpush %c FAILED%0\n", c));
 	temp = src->size--;
 	dest->size++;
 	ft_rotatedown(dest);
@@ -54,22 +59,40 @@ void	pushswap_push(t_pile *dest, t_pile *src, char c, int *tab)
 	i = 0;
 	while (++i < temp)
 		tab[i - 1] = tab[i];
-	ft_printf("p%c\n", c);
+	return (ft_printf("p%c\n", c));
 }
 
-void	pushswap_swap(int size, char c, int *tab)
-{
-	int	temp;
+// void	pushswap_swap(int size, char c, int *tab)
+// {
+// 	int	temp;
 
-	if (!size)
-		return ;
-	if (size < 2)
-	{
-		ft_printf("%r\t\tswap %c failed%0\n", c);
-		return ;
-	}
-	temp = tab[0];
-	tab[0] = tab[1];
-	tab[1] = temp;
-	ft_printf("s%c\n", c);
+// 	if (!size)
+// 		return ;
+// 	if (size < 2)
+// 	{
+// 		ft_printf("%r\t\tswap %c failed%0\n", c);
+// 		return ;
+// 	}
+// 	temp = tab[0];
+// 	tab[0] = tab[1];
+// 	tab[1] = temp;
+// 	ft_printf("s%c\n", c);
+// }
+
+void	pushswap_rrr(t_pile *pile_a, t_pile *pile_b, int x)
+{
+	int	r;
+
+	r = 0;
+	pushswap_rrotate(pile_a, '0', r);
+	pushswap_rrotate(pile_b, 'x', x--);
+}
+
+void	pushswap_rr(t_pile *pile_a, t_pile *pile_b, int x)
+{
+	int	r;
+
+	r = 0;
+	pushswap_rotate(pile_a, '0', r);
+	pushswap_rotate(pile_b, 'x', x--);
 }

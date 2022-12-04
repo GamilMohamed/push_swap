@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 09:26:22 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/02 09:06:41 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/04 04:10:25 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ void	ft_pushmin(t_pile *pile, char c)
 {
 	if (ft_getmin((*pile)) > pile->size / 2)
 		while (ft_getmin((*pile)) != 0)
-			pushswap_rrotate(pile, c);
+			pushswap_rrotate(pile, c, c);
 	else
 		while (ft_getmin((*pile)) != 0)
-			pushswap_rotate(pile, c);
+			pushswap_rotate(pile, c, c);
 }
-

@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 07:38:54 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/02 07:39:09 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/04 04:11:00 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	ft_tabtopileb(t_pile *pile_a, t_pile *pile_b, int *tabindex, int max)
 			pushswap_push(pile_b, pile_a, 'b', pile_a->tab);
 		else
 		{
-			pushswap_rrotate(pile_a, 'a');
+			pushswap_rotate(pile_a, 'a', j);
 			j++;
 		}
 	}
@@ -96,15 +96,9 @@ int	ft_lis(t_pile *pile_a, t_pile *pile_b)
 {
 	int	*tabindex;
 	int	max;
-	int	i;
 
-	i = -1;
 	tabindex = ft_tabindex(pile_a, pile_b);
 	tabindex = ft_sequence(pile_a, pile_b, tabindex, &max);
-	ft_printf("sequence:\n");
-	while (++i < max)
-		ft_printf("%i ", tabindex[i]);
-	ft_printf("\n");
 	ft_tabtopileb(pile_a, pile_b, tabindex, max);
 	free(tabindex);
 	return (0);

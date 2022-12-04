@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 06:22:19 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/02 09:08:21 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/04 04:09:46 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/includes/libft.h"
+/*\*/
 
 # define pb();		pushswap_push(pile_b, pile_a, 'b', pile_a->tab);
 # define pa();		pushswap_push(pile_a, pile_b, 'a', pile_b->tab);
@@ -39,6 +40,7 @@
 # define Psb();		pushswap_swap(pile_b->size, 'b', pile_b->tab);		ft_printab((*pile_a), (*pile_b));
 # define Pss();		pushswap_swap(pile_a->size, 'a', pile_a->tab);		pushswap_swap(pile_b->size, 'b', pile_b->tab);	ft_printab((*pile_a), (*pile_b));
 
+# define abs(x)		x < 0 ? x * -1 : x
 typedef struct s_pile
 {
 	int	size;
@@ -53,9 +55,11 @@ int		*ft_argtotab(int ac, char **av);
 void	ft_checksort(t_pile *pile_a, t_pile *pile_b, int size);
 void	ft_exit(t_pile *pile_a, t_pile *pile_b, int boolean);
 /*	ACTIONS.C			*/
-void	pushswap_rotate(t_pile *pile, char c);
-void	pushswap_rrotate(t_pile *pile, char c);
-void	pushswap_push(t_pile *dest, t_pile *src, char c, int *tab);
+void	pushswap_rotate(t_pile *pile, char c, int x);
+void	pushswap_rr(t_pile *pile_a, t_pile *pile_b, int x);
+void	pushswap_rrotate(t_pile *pile, char c, int x);
+void	pushswap_rrr(t_pile *pile_a, t_pile *pile_b, int x);
+int		pushswap_push(t_pile *dest, t_pile *src, char c, int *tab);
 void	pushswap_swap(int size, char c, int *tab);
 /*	ACTIONS_UTILS.C		*/
 void	ft_rotatedown(t_pile *pile);
@@ -71,6 +75,7 @@ void	ft_algo(t_pile *pile_a, t_pile *pile_b);
 /*	MATH.C				*/
 int		ft_getmin(t_pile pile);
 int		ft_getmax(t_pile pile);
+int		ft_getsup(t_pile pile_a, t_pile pile_b, int index);
 /*	LIS.C				*/
 int		*ft_tabindex(t_pile *pile_a, t_pile *pile_b);
 int		*ft_sequence(t_pile *pile_a, t_pile *pile_b, int *tabindex, int *max);
@@ -78,3 +83,5 @@ int		ft_intab(int j, int *tabindex, int max);
 void	ft_tabtopileb(t_pile *pile_a, t_pile *pile_b, int *tabindex, int max);
 int		ft_lis(t_pile *pile_a, t_pile *pile_b);
 #endif
+
+/**/

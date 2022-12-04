@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 05:47:02 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/01 04:27:52 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/04 02:48:40 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	ft_checksort(t_pile *pile_a, t_pile *pile_b, int size)
 
 void	ft_exit(t_pile *pile_a, t_pile *pile_b, int boolean)
 {
-	(void)boolean;
 	free(pile_a->tab);
 	free(pile_b->tab);
 	if (boolean == 1)
