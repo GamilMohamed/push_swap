@@ -6,7 +6,7 @@
 #    By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/24 20:15:20 by apuchill          #+#    #+#              #
-#    Updated: 2022/12/01 20:23:41 by mgamil           ###   ########.fr        #
+#    Updated: 2022/12/04 20:10:48 by mgamil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,8 @@ ft_lstdelone.c \
 ft_lstclear.c \
 ft_lstiter.c \
 ft_lstmap.c \
+get_next_line.c \
+get_next_line_utils.c
 
 SOURCE		=	$(addprefix ${DIR_SRCS}, ${SRCS})
 OBJS		=	$(subst ${DIR_SRCS}, ${DIR_OBJS}, $(SOURCE:.c=.o))

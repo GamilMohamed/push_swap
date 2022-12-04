@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 03:19:40 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/04 02:53:28 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/04 19:30:05 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_getmax(t_pile pile)
 	return (ret);
 }
 
-int	ft_getsup(t_pile pile_a, t_pile pile_b, int index)
+int	ft_sup(t_pile pile_a, t_pile pile_b, int index)
 {
 	int	i;
 	int	sup;
@@ -70,4 +70,11 @@ int	ft_getsup(t_pile pile_a, t_pile pile_b, int index)
 			&& pile_a.tab[max] > pile_a.tab[i])
 			max = i;
 	return (max);
+}
+
+int	abs(int x)
+{
+	if (x < 0)
+		return (x * -1);
+	return (x);
 }
