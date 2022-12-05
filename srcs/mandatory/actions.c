@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:15:51 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/04 21:38:15 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/05 01:00:41 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,37 +62,19 @@ int	pushswap_push(t_pile *dest, t_pile *src, char c, int *tab)
 	return (ft_printf("p%c\n", c));
 }
 
-// void	pushswap_swap(int size, char c, int *tab)
-// {
-// 	int	temp;
-
-// 	if (!size)
-// 		return ;
-// 	if (size < 2)
-// 	{
-// 		ft_printf("%r\t\tswap %c failed%0\n", c);
-// 		return ;
-// 	}
-// 	temp = tab[0];
-// 	tab[0] = tab[1];
-// 	tab[1] = temp;
-// 	ft_printf("s%c\n", c);
-// }
-
-void	pushswap_rrr(t_pile *pile_a, t_pile *pile_b, int x)
+void	pushswap_swap(int size, char c, int *tab)
 {
-	int	r;
+	int	temp;
 
-	r = 0;
-	pushswap_rrotate(pile_a, '0', r);
-	pushswap_rrotate(pile_b, 'x', x--);
-}
-
-void	pushswap_rr(t_pile *pile_a, t_pile *pile_b, int x)
-{
-	int	r;
-
-	r = 0;
-	pushswap_rotate(pile_a, '0', r);
-	pushswap_rotate(pile_b, 'x', x--);
+	if (!size)
+		return ;
+	if (size < 2)
+	{
+		ft_printf("%r\t\tswap %c failed%0\n", c);
+		return ;
+	}
+	temp = tab[0];
+	tab[0] = tab[1];
+	tab[1] = temp;
+	ft_printf("s%c\n", c);
 }

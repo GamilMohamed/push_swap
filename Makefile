@@ -4,13 +4,15 @@ NAME_BONUS		=	checker
 
 LIBFT			=	libft.a
 
-DIR_SRCS		=	srcs
+DIR_SRCS		=	srcs/mandatory
+
+DIR_BONUS		=	srcs/bonus
 
 DIR_OBJS		=	objs
 
-SRCS_NAMES		=	main.c actions.c actions_utils.c lis.c misc.c print.c price.c math.c
+SRCS_NAMES		=	main.c actions.c actions_utils.c lis.c misc.c print.c price.c math.c algo.c
 
-SRCS_NAMES_B	=	checker.c actions.c actions_utils.c lis.c misc.c print.c price.c math.c
+SRCS_NAMES_B	=	checker.c actions.c actions_utils.c misc.c print.c math.c
 
 OBJS_NAMES		=	${SRCS_NAMES:.c=.o}
 
@@ -18,7 +20,7 @@ OBJS_NAMES_B	=	${SRCS_NAMES_B:.c=.o}
 
 SRCS			=	$(addprefix $(DIR_SRCS)/,$(SRCS_NAMES))
 
-SRCS_B			=	$(addprefix $(DIR_SRCS)/,$(SRCS_NAMES_B))
+SRCS_B			=	$(addprefix $(DIR_BONUS)/,$(SRCS_NAMES_B))
 
 OBJS			=	$(addprefix $(DIR_OBJS)/,$(OBJS_NAMES))
 

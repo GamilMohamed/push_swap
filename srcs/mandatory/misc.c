@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 05:47:02 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/04 21:14:38 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/05 01:02:08 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 int	ft_aintnumeric(char *s)
 {
 	int	i;
+	int	z;
 
+	z = 0;
 	i = -1;
 	while (s[++i])
 	{
-		if ((s[i] < '0' || s[i] > '9') && ((s[i] != ' ') && (s[i] != '-')
-				&& (s[i] != '+')))
+		if (s[i] == '-')
+			z++;
+		if ((!ft_isdigit(s[i]) && s[i] != '-') || z > 1 || (ft_strlen(s) == 1
+				&& z == 1))
 			return (1);
 	}
 	return (0);
@@ -35,7 +39,7 @@ int	ft_checkacav(int ac, char **av)
 	if (ac < 2)
 		return (ft_printf("%m./pushswap $ARGS%0\n"));
 	while (av[++i])
-		if (ft_aintnumeric(av[i]))
+		if (av[i][0] == '\0' || ft_aintnumeric(av[i]))
 			return (ft_printf("%bOne of the args ain't numeric%0\n"));
 	i = 0;
 	while (av[++i])
@@ -89,7 +93,7 @@ void	ft_exit(t_pile *pile_a, t_pile *pile_b, int boolean)
 	free(pile_a->tab);
 	free(pile_b->tab);
 	if (boolean == 1)
-		ft_printf("%gSuccessfully sorted%0\n");
+		;
 	else if (boolean == 2)
 		ft_printf("%rmalloc failed%0\n");
 	else

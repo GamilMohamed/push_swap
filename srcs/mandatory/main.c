@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 09:23:37 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/04 21:37:10 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/05 01:01:29 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	pile_b.size = 0;
+	ft_algo(&pile_a, &pile_b);
 	ft_lis(&pile_a, &pile_b);
 	ft_pricecalculator(&pile_a, &pile_b);
 	ft_pushmin(&pile_a, 'a');

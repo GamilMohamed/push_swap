@@ -6,35 +6,50 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 19:55:51 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/04 21:28:22 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/05 00:51:51 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap_bonus.h"
 
-void	do_actions(t_pile *pile_a, t_pile *pile_b, int count, char *action)
+void	do_actions2(t_pile *pile_a, t_pile *pile_b, int *count, char *action)
 {
-	if (ft_strcmp(action, "pb\n") == 0)
-		count = pushswap_push(pile_b, pile_a, 'x', pile_a->tab);
-	if (ft_strcmp(action, "pa\n") == 0)
-		count = pushswap_push(pile_a, pile_b, 'x', pile_b->tab);
-	if (ft_strcmp(action, "ra\n") == 0)
-		count = pushswap_rotate(pile_a, 'x', 0);
-	if (ft_strcmp(action, "rb\n") == 0)
-		count = pushswap_rotate(pile_b, 'x', 0);
-	if (ft_strcmp(action, "rra\n") == 0)
-		count = pushswap_rrotate(pile_a, 'x', 0);
-	if (ft_strcmp(action, "rrb\n") == 0)
-		count = pushswap_rrotate(pile_a, 'x', 0);
 	if (ft_strcmp(action, "rr\n") == 0)
-		count = pushswap_rr(pile_a, pile_b, 0);
-	if (ft_strcmp(action, "rrr\n") == 0)
-		count = pushswap_rrr(pile_a, pile_b, 0);
-	if (!count)
-		ft_printf("lol\n");
+		*count = pushswap_rr(pile_a, pile_b);
+	else if (ft_strcmp(action, "rrr\n") == 0)
+		*count = pushswap_rrr(pile_a, pile_b);
+	else if (ft_strcmp(action, "sa\n") == 0)
+		*count = pushswap_swap(pile_a->size, pile_a->tab);
+	else if (ft_strcmp(action, "sb\n") == 0)
+		*count = pushswap_swap(pile_b->size, pile_b->tab);
+	else if (ft_strcmp(action, "ss\n") == 0)
+		*count = pushswap_ss(pile_a, pile_b);
+	else if (ft_strcmp(action, "print\n") == 0)
+		*count = ft_printab((*pile_a), (*pile_b));
+	if (!*count)
+	{
+		free(action);
+		ft_exit(pile_a, pile_b, 3);
+	}
 }
 
-int	checking(t_pile *pile_a, t_pile *pile_b, int total)
+void	do_actions1(t_pile *pile_a, t_pile *pile_b, int *count, char *action)
+{
+	if (ft_strcmp(action, "pb\n") == 0)
+		*count = pushswap_push(pile_b, pile_a, pile_a->tab);
+	else if (ft_strcmp(action, "pa\n") == 0)
+		*count = pushswap_push(pile_a, pile_b, pile_b->tab);
+	else if (ft_strcmp(action, "ra\n") == 0)
+		*count = pushswap_rotate(pile_a);
+	else if (ft_strcmp(action, "rb\n") == 0)
+		*count = pushswap_rotate(pile_b);
+	else if (ft_strcmp(action, "rra\n") == 0)
+		*count = pushswap_rrotate(pile_a);
+	else if (ft_strcmp(action, "rrb\n") == 0)
+		*count = pushswap_rrotate(pile_b);
+}
+
+int	checking(t_pile *pile_a, int total)
 {
 	int	i;
 	int	j;
@@ -46,7 +61,7 @@ int	checking(t_pile *pile_a, t_pile *pile_b, int total)
 		while (j < pile_a->size)
 		{
 			if (pile_a->tab[i] > pile_a->tab[j])
-				ft_exit(pile_a, pile_b, 0);
+				return (0);
 			j++;
 		}
 		i++;
@@ -60,30 +75,28 @@ void	checker(t_pile *pile_a, t_pile *pile_b)
 {
 	char	*action;
 	int		firstloop;
+	int		count;
 
 	firstloop = 1;
 	action = 0;
 	while (action || firstloop)
 	{
+		count = 0;
 		action = get_next_line(0);
 		if (!action)
 			break ;
-		if (action && firstloop && checking(pile_a, pile_b, pile_a->total))
-		{
-			ft_printf("KO\n");
-			free(action);
-			exit(1);
-		}
-		do_actions(pile_a, pile_b, 0, action);
+		do_actions1(pile_a, pile_b, &count, action);
+		do_actions2(pile_a, pile_b, &count, action);
 		free(action);
 		firstloop = 0;
 	}
+	ft_checksort(pile_a, pile_b, pile_a->total);
 }
 
 int	main(int ac, char **av)
 {
-	t_pile pile_a;
-	t_pile pile_b;
+	t_pile	pile_a;
+	t_pile	pile_b;
 
 	if (ft_checkacav(ac, av))
 		return (1);
