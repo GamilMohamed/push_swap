@@ -6,24 +6,27 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 09:23:37 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/05 01:01:29 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/06 23:39:14 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int	*parse_args(int ac, char **av, int *size);
+
 int	main(int ac, char **av)
 {
 	t_pile	pile_a;
 	t_pile	pile_b;
+	int		size;
 
-	if (ft_checkacav(ac, av))
+	if (ac < 2)
 		return (1);
-	pile_a.tab = ft_argtotab(ac, av);
+	pile_a.tab = parse_args(ac, av, &size);
 	if (!pile_a.tab)
 		return (0);
-	pile_a.total = ac - 1;
-	pile_a.size = ac - 1;
+	pile_a.total = size;
+	pile_a.size = size;
 	pile_b.tab = malloc(sizeof(int) * pile_a.total);
 	if (!pile_b.tab)
 	{

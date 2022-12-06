@@ -6,70 +6,11 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 05:47:02 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/05 01:01:55 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/06 23:36:07 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap_bonus.h"
-
-int	ft_aintnumeric(char *s)
-{
-	int	i;
-	int	z;
-
-	z = 0;
-	i = -1;
-	while (s[++i])
-	{
-		if (s[i] == '-')
-			z++;
-		if ((!ft_isdigit(s[i]) && s[i] != '-') || z > 1 || (ft_strlen(s) == 1
-				&& z == 1))
-			return (1);
-	}
-	return (0);
-}
-
-int	ft_checkacav(int ac, char **av)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	if (ac < 2)
-		exit(1);
-	while (av[++i])
-		if (av[i][0] == '\0' || ft_aintnumeric(av[i]))
-			return (ft_printf("Error\n"));
-	i = 0;
-	while (av[++i])
-	{
-		j = i;
-		while (av[++j])
-		{
-			if (ft_strcmp(av[i], av[j]) == 0)
-			{
-				ft_printf("Error\n");
-				exit(1);
-			}
-		}
-	}
-	return (0);
-}
-
-int	*ft_argtotab(int ac, char **av)
-{
-	int	*tab;
-	int	i;
-
-	i = -1;
-	tab = malloc(sizeof(int) * (ac - 1));
-	if (!tab)
-		return (0);
-	while (++i < ac - 1)
-		tab[i] = ft_atoi(av[i + 1]);
-	return (tab);
-}
 
 void	ft_checksort(t_pile *pile_a, t_pile *pile_b, int size)
 {
@@ -102,7 +43,7 @@ void	ft_exit(t_pile *pile_a, t_pile *pile_b, int boolean)
 	else if (boolean == 2)
 		ft_printf("%rmalloc failed%0\n");
 	else if (boolean == 3)
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 	else
 		ft_printf("KO\n");
 	exit(EXIT_SUCCESS);

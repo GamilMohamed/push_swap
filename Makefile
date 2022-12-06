@@ -10,9 +10,9 @@ DIR_BONUS		=	srcs/bonus
 
 DIR_OBJS		=	objs
 
-SRCS_NAMES		=	main.c actions.c actions_utils.c lis.c misc.c print.c price.c math.c algo.c
+SRCS_NAMES		=	main.c actions.c actions_utils.c lis.c misc.c print.c price.c math.c algo.c parse.c
 
-SRCS_NAMES_B	=	checker.c actions.c actions_utils.c misc.c print.c math.c
+SRCS_NAMES_B	=	checker.c actions.c actions_utils.c misc.c print.c parse.c
 
 OBJS_NAMES		=	${SRCS_NAMES:.c=.o}
 
@@ -29,6 +29,8 @@ HEAD			=	-I includes
 CC				=	cc
 
 CFLAGS			=	-g3 -Wall -Werror -Wextra
+
+MAKEFLAGS		=	--no-print-directory
 
 all				:	${NAME}
 
@@ -48,7 +50,7 @@ bonus:
 	make -C libft
 	mv libft/libft.a .
 	$(CC) $(CFLAGS) $(SRCS_B) ${LIBFT} -o $(NAME_BONUS)
-	@echo "\033[34;5mpushswap\033[0m"
+	@echo "\033[31;5mpushswap BONUS\033[0m"
 
 clean:
 	make clean -C libft
@@ -67,3 +69,4 @@ stop:
 	rm ${NAME}
 
 .PHONY:	all clean fclean re bonus
+.SILENT:
