@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:34:30 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/06 23:39:32 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 00:46:00 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_freetab(char **tab, int boolean)
 	free(tab);
 	if (boolean)
 		return (0);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
 
@@ -49,7 +50,10 @@ int	*ft_duptab(int *tab, int size)
 	int	i;
 
 	if (!ft_double(tab, size))
+	{
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
+	}
 	new = malloc(sizeof(int) * size);
 	if (!new)
 		return (NULL);
@@ -100,6 +104,8 @@ int	*parse_args(int ac, char **av, int *size)
 			if (!ft_isdigit(tmp[0]) && tmp[1] == '\0')
 				ft_freetab(res, 0);
 			ft_whileresij(res, index[2]);
+			if (ft_atoi(tmp) > 2147483647 || ft_atoi(tmp) < -2147483648)
+				ft_freetab(res, 0);
 			tab[index[1]++] = ft_atoi(tmp);
 		}
 		ft_freetab(res, 1);

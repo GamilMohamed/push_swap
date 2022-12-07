@@ -24,7 +24,7 @@ SRCS_B			=	$(addprefix $(DIR_BONUS)/,$(SRCS_NAMES_B))
 
 OBJS			=	$(addprefix $(DIR_OBJS)/,$(OBJS_NAMES))
 
-HEAD			=	-I includes
+HEAD			=	-Iincludes/ -Ilibft/includes
 
 CC				=	cc
 

@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 06:22:19 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/06 23:35:45 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/07 23:18:46 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		*ft_duptab(int *tab, int size);
 void	ft_whileresij(char **res, int i);
 int		*parse_args(int ac, char **av, int *size);
 /*	MISC.C				*/
+void	ft_checksortav(t_pile *pile_a, int size);
 void	ft_checksort(t_pile *pile_a, t_pile *pile_b, int size);
 void	ft_exit(t_pile *pile_a, t_pile *pile_b, int boolean);
 /*	ACTIONS.C			*/
@@ -44,6 +45,7 @@ void	pushswap_rr(t_pile *pile_a, t_pile *pile_b, int x);
 void	pushswap_rrr(t_pile *pile_a, t_pile *pile_b, int x);
 /*	ALGO.C				*/
 void	ft_algo(t_pile *pile_a, t_pile *pile_b);
+void	algo_two(t_pile *pile_a);
 void	algo_three(t_pile *pile);
 void	algo_five(t_pile *pile_a, t_pile *pile_b);
 /*	PRINT.C				*/
@@ -53,11 +55,7 @@ int		ft_getmin(t_pile pile);
 int		ft_getmax(t_pile pile);
 int		ft_sup(t_pile pile_a, t_pile pile_b, int index);
 /*	LIS.C				*/
-int		*ft_tabindex(t_pile *pile_a, t_pile *pile_b);
-int		*ft_sequence(t_pile *pile_a, t_pile *pile_b, int *tabindex, int *max);
-int		ft_intab(int j, int *tabindex, int max);
-void	ft_tabtopileb(t_pile *pile_a, t_pile *pile_b, int *tabindex, int max);
-int		ft_lis(t_pile *pile_a, t_pile *pile_b);
+void	algo_all(t_pile *pile_a, t_pile *pile_b);
 /*	PRICE.C				*/
 void	ft_pricecalculator(t_pile *pile_a, t_pile *pile_b);
 int		ft_domovement(t_pile *pile_a, t_pile *pile_b, int index[5]);

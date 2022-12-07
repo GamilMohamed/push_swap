@@ -6,11 +6,35 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 05:47:02 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/06 23:34:28 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/07 23:04:45 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
+
+void	ft_checksortav(t_pile *pile_a, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < pile_a->size)
+	{
+		j = i + 1;
+		while (j < pile_a->size)
+		{
+			if (pile_a->tab[i] > pile_a->tab[j])
+				return ;
+			j++;
+		}
+		i++;
+	}
+	if (i == size)
+	{
+		free(pile_a->tab);
+		exit(1);
+	}
+}
 
 void	ft_checksort(t_pile *pile_a, t_pile *pile_b, int size)
 {

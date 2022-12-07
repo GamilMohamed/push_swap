@@ -6,13 +6,31 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 09:23:37 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/06 23:39:14 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 00:24:28 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-int	*parse_args(int ac, char **av, int *size);
+int	ft_checkacav(int ac, char **av)
+{
+	int	i;
+	int	k;
+
+	i = 0;
+	while (++i < ac)
+	{
+		k = 0;
+		while (av[i][k] == ' ' && av[i][k] != '\0')
+			k++;
+		if (av[i][k] == '\0')
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+	}
+	return (0);
+}
 
 int	main(int ac, char **av)
 {
@@ -22,11 +40,14 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (1);
+	if (ft_checkacav(ac, av))
+		return (1);
 	pile_a.tab = parse_args(ac, av, &size);
 	if (!pile_a.tab)
 		return (0);
 	pile_a.total = size;
 	pile_a.size = size;
+	ft_checksortav(&pile_a, size);
 	pile_b.tab = malloc(sizeof(int) * pile_a.total);
 	if (!pile_b.tab)
 	{
@@ -35,9 +56,5 @@ int	main(int ac, char **av)
 	}
 	pile_b.size = 0;
 	ft_algo(&pile_a, &pile_b);
-	ft_lis(&pile_a, &pile_b);
-	ft_pricecalculator(&pile_a, &pile_b);
-	ft_pushmin(&pile_a, 'a');
-	ft_checksort(&pile_a, &pile_b, pile_a.total);
 	return (0);
 }
