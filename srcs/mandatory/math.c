@@ -6,11 +6,11 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 03:19:40 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/04 19:30:05 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:23:15 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	ft_getmin(t_pile pile)
 {

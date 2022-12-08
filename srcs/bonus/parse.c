@@ -6,13 +6,13 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 23:34:30 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/06 23:39:39 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:45:52 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap_bonus.h"
+#include "push_swap_bonus.h"
 
-int	ft_double(const int *tab, const int size)
+int	ft_double(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -22,10 +22,8 @@ int	ft_double(const int *tab, const int size)
 	{
 		j = i;
 		while (++j < size)
-		{
 			if (tab[i] == tab[j])
 				return (0);
-		}
 	}
 	return (1);
 }
@@ -40,6 +38,7 @@ int	ft_freetab(char **tab, int boolean)
 	free(tab);
 	if (boolean)
 		return (0);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
 
@@ -49,7 +48,10 @@ int	*ft_duptab(int *tab, int size)
 	int	i;
 
 	if (!ft_double(tab, size))
+	{
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
+	}
 	new = malloc(sizeof(int) * size);
 	if (!new)
 		return (NULL);
@@ -81,7 +83,6 @@ void	ft_whileresij(char **res, int i)
 
 int	*parse_args(int ac, char **av, int *size)
 {
-	char	*tmp;
 	int		tab[10000];
 	int		index[3];
 	char	**res;
@@ -96,11 +97,13 @@ int	*parse_args(int ac, char **av, int *size)
 		index[2] = -1;
 		while (res[++index[2]])
 		{
-			tmp = res[index[2]];
-			if (!ft_isdigit(tmp[0]) && tmp[1] == '\0')
+			if (!ft_isdigit(res[index[2]][0]) && res[index[2]][1] == '\0')
 				ft_freetab(res, 0);
 			ft_whileresij(res, index[2]);
-			tab[index[1]++] = ft_atoi(tmp);
+			if (ft_atoi(res[index[2]]) > 2147483647 || ft_atoi(res[index[2]])
+				< -2147483648)
+				ft_freetab(res, 0);
+			tab[index[1]++] = ft_atoi(res[index[2]]);
 		}
 		ft_freetab(res, 1);
 	}

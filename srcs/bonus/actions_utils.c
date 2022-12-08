@@ -6,11 +6,11 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 09:26:22 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/05 20:50:13 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:22:57 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap_bonus.h"
+#include "push_swap_bonus.h"
 
 void	ft_rotatedown(t_pile *pile)
 {

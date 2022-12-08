@@ -6,11 +6,11 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:18:08 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/02 07:31:45 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:23:15 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	ft_printab(t_pile pile_a, t_pile pile_b)
 {

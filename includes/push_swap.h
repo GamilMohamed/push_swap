@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 06:22:19 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/07 23:18:46 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:46:22 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ typedef struct s_pile
 }		t_pile;
 
 /*	PARSE.C				*/
-int		ft_double(const int *tab, const int size);
+int		ft_double(int *tab, int size);
 int		ft_freetab(char **tab, int boolean);
 int		*ft_duptab(int *tab, int size);
 void	ft_whileresij(char **res, int i);
 int		*parse_args(int ac, char **av, int *size);
 /*	MISC.C				*/
 void	ft_checksortav(t_pile *pile_a, int size);
+int		ft_checkacav(int ac, char **av);
 void	ft_checksort(t_pile *pile_a, t_pile *pile_b, int size);
 void	ft_exit(t_pile *pile_a, t_pile *pile_b, int boolean);
 /*	ACTIONS.C			*/

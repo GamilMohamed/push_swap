@@ -10,7 +10,7 @@ DIR_BONUS		=	srcs/bonus
 
 DIR_OBJS		=	objs
 
-SRCS_NAMES		=	main.c actions.c actions_utils.c lis.c misc.c print.c price.c math.c algo.c parse.c
+SRCS_NAMES		=	main.c actions.c actions_utils.c median.c misc.c print.c price.c math.c algo.c parse.c
 
 SRCS_NAMES_B	=	checker.c actions.c actions_utils.c misc.c print.c parse.c
 
@@ -49,7 +49,7 @@ $(DIR_OBJS):
 bonus:
 	make -C libft
 	mv libft/libft.a .
-	$(CC) $(CFLAGS) $(SRCS_B) ${LIBFT} -o $(NAME_BONUS)
+	$(CC) $(CFLAGS) $(SRCS_B) ${HEAD} ${LIBFT} -o $(NAME_BONUS)
 	@echo "\033[31;5mpushswap BONUS\033[0m"
 
 clean:

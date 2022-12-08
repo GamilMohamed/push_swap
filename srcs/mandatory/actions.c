@@ -6,11 +6,11 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 21:15:51 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/05 01:00:41 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:23:15 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	pushswap_rotate(t_pile *pile, char c, int x)
 {

@@ -6,11 +6,11 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 19:55:51 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/06 23:38:37 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 02:22:57 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap_bonus.h"
+#include "push_swap_bonus.h"
 
 void	do_actions2(t_pile *pile_a, t_pile *pile_b, int *count, char *action)
 {
@@ -102,6 +102,8 @@ int	main(int ac, char **av)
 	size = 0;
 	if (ac < 2)
 		return (1);
+	if (ft_checkacav(ac, av))
+		return (1);
 	pile_a.tab = parse_args(ac, av, &size);
 	if (!pile_a.tab)
 		return (0);
@@ -115,4 +117,5 @@ int	main(int ac, char **av)
 	}
 	pile_b.size = 0;
 	checker(&pile_a, &pile_b);
+	return (0);
 }
