@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 07:38:54 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/08 02:23:15 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 18:34:56 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	ft_tabtopileb(t_pile *pile_a, t_pile *pile_b)
 
 	tab = ft_gettab(pile_a, pile_b);
 	median = tab[pile_a->size / 2];
-	free(tab);
 	if (pile_a->size > 100)
 		median = tab[(pile_a->size / 7) * 2];
+	free(tab);
 	while (pile_a->size != 3)
 	{
 		j = 0;
