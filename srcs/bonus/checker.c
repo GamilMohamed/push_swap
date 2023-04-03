@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 19:55:51 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/08 20:06:13 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:39:25 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	do_actions2(t_pile *pile_a, t_pile *pile_b, int *count, char *action)
 	if (!*count)
 	{
 		free(action);
+		get_next_line(0, 1);
 		ft_exit(pile_a, pile_b, 3);
 	}
 }
@@ -71,28 +72,28 @@ int	checking(t_pile *pile_a, int total)
 	return (1);
 }
 
-char	*gset_next_line(int fd)
-{
-	int		i;
-	int		rd;
-	char	character;
-	char	buffer[10000];
+// char	*get_next_line(i, 0nt fd)
+// {
+// 	int		i;
+// 	int		rd;
+// 	char	character;
+// 	char	buffer[10000];
 
-	i = 0;
-	rd = 0;
-	while ((rd = read(fd, &character, 1)) > 0)
-	{
-		buffer[i++] = character;
-		if (character == '\n')
-			break ;
-	}
-	if (i == 0)
-		return (NULL);
-	if ((!buffer[i - 1] && !rd) || rd == -1)
-		return (NULL);
-	buffer[i] = '\0';
-	return (ft_strdup(buffer));
-}
+// 	i = 0;
+// 	rd = 0;
+// 	while ((rd = read(fd, &character, 1)) > 0)
+// 	{
+// 		buffer[i++] = character;
+// 		if (character == '\n')
+// 			break ;
+// 	}
+// 	if (i == 0)
+// 		return (NULL);
+// 	if ((!buffer[i - 1] && !rd) || rd == -1)
+// 		return (NULL);
+// 	buffer[i] = '\0';
+// 	return (ft_strdup(buffer));
+// }
 
 void	checker(t_pile *pile_a, t_pile *pile_b)
 {
@@ -103,14 +104,14 @@ void	checker(t_pile *pile_a, t_pile *pile_b)
 	while (1)
 	{
 		count = 0;
-		action = gset_next_line(0);
+		action = get_next_line(0, 0);
 		if (!action)
 			break ;
-		// ft_printf("action=%s", action);
 		do_actions1(pile_a, pile_b, &count, action);
 		do_actions2(pile_a, pile_b, &count, action);
 		free(action);
 	}
+	get_next_line(0, 1);
 	ft_checksort(pile_a, pile_b, pile_a->total);
 }
 

@@ -30,7 +30,7 @@ CC				=	cc
 
 CFLAGS			=	-g3 -Wall -Werror -Wextra
 
-MAKEFLAGS		=	--no-print-directory
+# MAKEFLAGS		=	--no-print-directory
 
 all				:	${NAME}
 
@@ -69,4 +69,4 @@ stop:
 	rm ${NAME}
 
 .PHONY:	all clean fclean re bonus
-.SILENT:
+# .SILENT:

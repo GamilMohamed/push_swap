@@ -6,14 +6,14 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 06:22:19 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/08 02:46:22 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/03 03:32:49 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/includes/libft.h"
+# include "libft.h"
 
 typedef struct s_pile
 {
@@ -59,8 +59,9 @@ int		ft_sup(t_pile pile_a, t_pile pile_b, int index);
 void	algo_all(t_pile *pile_a, t_pile *pile_b);
 /*	PRICE.C				*/
 void	ft_pricecalculator(t_pile *pile_a, t_pile *pile_b);
-int		ft_domovement(t_pile *pile_a, t_pile *pile_b, int index[5]);
 int		ft_totalprice(int price_a, int price_b);
+int	ft_domovement(t_pile *pile_a, t_pile *pile_b, int best_price_a, int best_price_b);
+
 int		ft_price(t_pile *pile, int index);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 07:38:54 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/08 18:34:56 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/03 03:25:57 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,19 @@ int	*ft_gettab(t_pile *pile_a, t_pile *pile_b)
 
 void	ft_tabtopileb(t_pile *pile_a, t_pile *pile_b)
 {
-	int	j;
-	int	*tab;
-	int	median;
 
-	tab = ft_gettab(pile_a, pile_b);
-	median = tab[pile_a->size / 2];
-	if (pile_a->size > 100)
-		median = tab[(pile_a->size / 7) * 2];
-	free(tab);
 	while (pile_a->size != 3)
 	{
-		j = 0;
-		if (pile_a->tab[j] >= median)
-		{
-			pushswap_push(pile_b, pile_a, 'b', pile_a->tab);
-			tab = ft_gettab(pile_a, pile_b);
-			median = tab[(pile_a->size / 7) * 5];
-			free(tab);
-		}
-		else
-			pushswap_rotate(pile_a, 'a', j++);
+		pushswap_push(pile_b, pile_a, 'b', pile_a->tab);
 	}
 	algo_three(pile_a);
 }
 
 void	algo_all(t_pile *pile_a, t_pile *pile_b)
 {
+	// ft_printab(*pile_a, *pile_b);
 	ft_tabtopileb(pile_a, pile_b);
+	// ft_printab(*pile_a, *pile_b);
 	ft_pricecalculator(pile_a, pile_b);
 	ft_pushmin(pile_a, 'a');
 }

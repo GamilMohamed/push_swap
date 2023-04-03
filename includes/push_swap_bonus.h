@@ -6,14 +6,15 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 06:22:19 by mgamil            #+#    #+#             */
-/*   Updated: 2022/12/08 02:46:12 by mgamil           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:25:42 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 
-# include "../libft/includes/libft.h"
+# include "get_next_line.h"
+# include "libft.h"
 
 typedef struct s_pile
 {
